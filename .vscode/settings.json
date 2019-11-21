@@ -16,8 +16,8 @@
     "editor.tabSize": 4,
     "editor.formatOnSave": true
   },
-  "python.venvPath": ".venv",
-  "python.pythonPath": "${workspaceFolder}/.venv/bin/python",
+  "python.venvPath": "backend/.venv",
+  "python.pythonPath": "${workspaceFolder}/backend/.venv/bin/python",
   "python.formatting.provider": "black",
   "python.linting.pylintEnabled": false,
   "python.linting.flake8Enabled": true,
