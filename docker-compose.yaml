@@ -2,6 +2,11 @@ version: "3"
 services:
   db:
     image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: "4W~H.nL("
+      MYSQL_DATABASE: "shareboo"
+      MYSQL_USER: "shareboo"
+      MYSQL_PASSWORD: "S?.QxBb0"
   backend:
     build:
       context: "./docker/backend"
@@ -14,5 +19,10 @@ services:
       - "8000:8000"
     links:
       - "db"
+    environment:
+      MYSQL_ROOT_PASSWORD: "4W~H.nL("
+      MYSQL_DATABASE: "shareboo"
+      MYSQL_USER: "shareboo"
+      MYSQL_PASSWORD: "S?.QxBb0"
 volumes:
   python-packages:
