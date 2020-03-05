@@ -1,0 +1,36 @@
+version: "3"
+services:
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: "4W~H.nL("
+      MYSQL_DATABASE: "shareboo"
+      MYSQL_USER: "shareboo"
+      MYSQL_PASSWORD: "S?.QxBb0"
+  backend:
+    build:
+      context: "./docker/backend"
+      dockerfile: "Dockerfile.dev"
+    command: python manage.py runserver 0:8000
+    volumes:
+      - ./src/backend:/code
+      - python-packages:/root/.local/share
+    ports:
+      - "8000:8000"
+    links:
+      - "db"
+    environment:
+      MYSQL_ROOT_PASSWORD: "4W~H.nL("
+      MYSQL_DATABASE: "shareboo"
+      MYSQL_USER: "shareboo"
+      MYSQL_PASSWORD: "S?.QxBb0"
+  frontend:
+    build:
+      context: "./docker/frontend"
+      dockerfile: "Dockerfile.dev"
+    volumes:
+      - ./src/frontend:/code
+    ports:
+      - "3000:3000"
+volumes:
+  python-packages:
