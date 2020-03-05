@@ -1,0 +1,14 @@
+version: "3"
+services:
+  db:
+    image: mysql:5.7
+  backend:
+    build:
+      context: "./docker/backend"
+      dockerfile: "Dockerfile.dev"
+    command: python main.py
+    volumes:
+      - .:/code
+      - python-packages:/root/.local/share
+volumes:
+  python-packages:
