@@ -6,9 +6,13 @@ services:
     build:
       context: "./docker/backend"
       dockerfile: "Dockerfile.dev"
-    command: python main.py
+    command: python manage.py runserver 0:8000
     volumes:
-      - .:/code
+      - ./src/backend:/code
       - python-packages:/root/.local/share
+    ports:
+      - "8000:8000"
+    links:
+      - "db"
 volumes:
   python-packages:
