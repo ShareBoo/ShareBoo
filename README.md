@@ -1,2 +1,3 @@
-# ShareBoo
-本でつながるSNS「ShareBoo」
+# shareboo
+
+本でつながる SNS「shareboo」
