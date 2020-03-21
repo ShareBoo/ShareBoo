@@ -13,7 +13,7 @@ services:
       dockerfile: "Dockerfile.dev"
     command: python manage.py runserver 0:8000
     volumes:
-      - ./src/backend:/code
+      - ./shareboo/backend:/code
       - python-packages:/root/.local/share
     ports:
       - "8000:8000"
@@ -29,7 +29,7 @@ services:
       context: "./docker/frontend"
       dockerfile: "Dockerfile.dev"
     volumes:
-      - ./src/frontend:/code
+      - ./shareboo/frontend:/code
     ports:
       - "3000:3000"
 volumes:
