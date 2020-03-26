@@ -12,7 +12,7 @@ class Book(BaseModel):
     volume = models.ForeignKey(Volume, on_delete=models.CASCADE)
     like_count = models.IntegerField()
     short_description = models.CharField(max_length=200)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    owner = models.ForeignKey(User, on_delete=models.CASCADE)
 
 
 class LendingStatus(models.IntegerChoices):
@@ -23,5 +23,5 @@ class LendingStatus(models.IntegerChoices):
 
 class Lending(BaseModel):
     lending_status = models.IntegerField(choices=LendingStatus.choices)
-    borrowing_user = models.ForeignKey(User, on_delete=models.CASCADE)
+    borrower = models.ForeignKey(User, on_delete=models.CASCADE)
     return_due_date = models.DateField()
